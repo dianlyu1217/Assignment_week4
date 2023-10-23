@@ -23,8 +23,6 @@ def flood_fill(input_board: list[str], old: str, new: str, x: int, y: int) -> li
         List[str]: Modified board
     """
     # Implement your code here.
-    if invalid_length(input_board):
-        raise ValueError("input boards length invalid")
     if out_of_index(input_board, x, y):
         return input_board
     if input_board[x][y] != old:
@@ -35,13 +33,6 @@ def flood_fill(input_board: list[str], old: str, new: str, x: int, y: int) -> li
     input_board = flood_fill(input_board, old, new, x, y + 1)
     input_board = flood_fill(input_board, old, new, x, y - 1)
     return input_board
-
-
-def invalid_length(input_board: list[str]) -> bool:
-    for s in input_board:
-        if len(s) != len(input_board[0]):
-            return True
-    return False
 
 
 def out_of_index(input_board: list[str], x: int, y: int) -> bool:
